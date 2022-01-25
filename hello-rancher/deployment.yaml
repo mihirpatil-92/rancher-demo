@@ -4,7 +4,7 @@ metadata:
   name: hello-rancher
   namespace: demo-rancher
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: hello-rancher
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: hello-rancher
-          image: harbor.coe.com/cd-demo/hello-rancher:1.0.2
+          image: harbor.coe.com/cd-demo/hello-rancher:1.0.1
           imagePullPolicy: Always
           ports:
           - containerPort: 8080
@@ -23,11 +23,11 @@ spec:
             protocol: TCP
           env:
             - name: CONTAINER_COLOR
-              value: teal
+              value: green
             - name: TITLE
               value: Hello Rancher              
             - name: PETS
-              value: whitecows   
+              value: cowmeleons   
           readinessProbe:
             httpGet:
               port: web
